@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  pihole:
+    image: pihole/pihole
+    deploy:
+      mode: global
+      placement:
+        constraints: [node.labels.pihole==true]
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    environment:
+     - TZ=Europe/Berlin
+     - WEBPASSWORD=
+     - WEB_PORT=8000
+    volumes:
+      - /opt/pihole/etc-pihole/:/etc/pihole/
+      - /opt/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
+    networks:
+          - host
+networks:
+  host:
+    external: true
