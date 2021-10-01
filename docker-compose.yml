@@ -14,10 +14,14 @@ services:
      - WEBPASSWORD=
      - WEB_PORT=8000
     volumes:
-      - /opt/pihole/etc-pihole/:/etc/pihole/
-      - /opt/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
+      - pihole.etc:/etc/pihole/
+      - pihole.dnsmasqd:/etc/dnsmasq.d/
     networks:
           - host
 networks:
   host:
     external: true
+
+volumes:
+    pihole.etc:
+    pihole.dnsmasqd:

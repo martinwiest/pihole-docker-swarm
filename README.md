@@ -43,7 +43,7 @@ The Goal is rechead too by simply running pihole with docker on earch node
 
 ### Setup
 
-At first choose two or more nodes wich should be workers to run pihole and
+At first choose two nodes wich should be workers to run pihole and
 label each of them:
 
     docker node update --label-add pihole=true pi1.my.lan
@@ -53,15 +53,4 @@ On each node a path for saving settings ist needed.
     sudo mkdir -p /opt/pihole/{etc-dnsmasq.d,etc-pihole}
 
 You can choose another path and edit the volume setting in the docker-compose file.
-
-
-
-
-
-
-
-
-
-
-
 

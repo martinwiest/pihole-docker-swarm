@@ -1,0 +1,3 @@
+docker node update --label-add pideb=true debian1.mw.lan
+docker node update --label-add pideb=true debian2.mw.lan
+
