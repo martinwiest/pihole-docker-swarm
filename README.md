@@ -19,7 +19,6 @@ A docker-compose file to run multiple instances of pihole in your docker swarm
 Today we use the internet with countless connections, datatransfers and trackings in the
 background we don´t need and want. A great solution to keep this things out of your
 network is the dns filter pihole. (Visit the project page )(https://pi-hole.net/) 
->>>>>>> repli
 
 I was using pihole in a dockercontainer on a pi3 for a long time. One day the pi died while
 i was not at home. The pi was the only dns server in our lan, so the family went offline 
