@@ -1,25 +1,31 @@
-version: '3.3'
+version: '3.9'
 services:
   pihole:
     image: pihole/pihole
     deploy:
-      mode: global
+      mode: replicated 
+      replicas: 2
       placement:
+        max_replicas_per_node: 1
         constraints: [node.labels.pihole==true]
       restart_policy:
         condition: on-failure
         max_attempts: 3
-        delay: 5s
+        delay: 10s
         window: 120s
     environment:
      - TZ=Europe/Berlin
      - WEBPASSWORD=
      - WEB_PORT=8000
     volumes:
-      - /opt/pihole/etc-pihole/:/etc/pihole/
-      - /opt/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
+      - pihole.etc:/etc/pihole/
+      - pihole.dnsmasqd:/etc/dnsmasq.d/
     networks:
           - host
 networks:
   host:
     external: true
+
+volumes:
+    pihole.etc:
+    pihole.dnsmasqd:
